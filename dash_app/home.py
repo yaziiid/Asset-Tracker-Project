@@ -10,7 +10,7 @@ import pandas as pd
 
 #### Database Configuration ######
 config = configparser.ConfigParser()
-config.read('cloud_db.ini')
+config.read('local_db.ini')
 hostname = config['HOST_DATA']['hostname']
 username = config['USER_DATA']['username']
 password = config['USER_DATA']['password']
@@ -51,15 +51,15 @@ markdown_1 = f'''
 
 
 home_layout = dbc.Container([
+    # dbc.Row([
+    #     dbc.Col([
+    #         dcc.Dropdown(
+    #             id = 'home_search', placeholder= 'search name or product id ', className='dropdown hdd', optionHeight=50,
+    #         ),
+    #     ], class_name='col-lg-2 mx-auto mb-3')
+    # ]),
     dbc.Row([
-        dbc.Col([
-            dcc.Dropdown(
-                id = 'home_search', placeholder= 'search name or product id ', className='dropdown hdd', optionHeight=50,
-            ),
-        ], class_name='col-lg-2 mx-auto mb-3')
-    ]),
-    dbc.Row([
-        dbc.Col(dcc.Graph(figure=customer_map, id='customer_map', className='card', style={'height': '75vh'}), class_name='map mx-auto col-sm-11 rounded h-auto'),
+        dbc.Col(dcc.Graph(figure=customer_map, id='customer_map', className='card', style={'height': '80vh'}), class_name='map mx-auto col-sm-12 rounded h-auto'),
     ], class_name='align-top')
 ], fluid=True, class_name='mt-2 mx-0 py-0 px-0 rounded')
 

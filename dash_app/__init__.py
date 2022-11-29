@@ -16,8 +16,9 @@ nav = dbc.Nav([
         dbc.NavItem(dbc.NavLink("Home", id='home', href='/home', style=style_2),  class_name='me-1'),
         dbc.NavItem(dbc.NavLink("Register", id='register', href='/register', style=style_2),  class_name='me-1'),
         dbc.NavItem(dbc.NavLink("Records", id='records', href='/records', style=style_2),  class_name='me-1'),
-        dbc.NavItem(dbc.NavLink("Search", id='search', href='/search', style=style_2), class_name='me-1'),
-        dbc.NavItem(dbc.NavLink("Logout", id='logout', href='/logout', style=style_2, external_link=True), class_name='me-1')
+        # dbc.NavItem(dbc.NavLink("Search", id='search', href='/search', style=style_2), class_name='me-1'),
+        dbc.NavItem(dbc.NavLink("Logout", id='logout', href='/logout', style=style_2, external_link=True), class_name='me-1'),
+
 ],navbar=True, justified=True, class_name='mx-auto fs-4')
 
 navbar = dbc.Navbar(
@@ -35,9 +36,16 @@ navbar = dbc.Navbar(
         dbc.Col([
             html.H2('Save-80 Geo-locator'), #style={'color':'#B8E1E9'}
             dbc.NavbarToggler(id='nav-toggler', n_clicks=0),
-            dbc.Collapse(nav, id='navbar-collapse', is_open=False, navbar=True)
-        ],class_name='col-6 text-center header-text'),
-        dbc.Col(html.Img(src='assets/atmosfair.png', width=200, height=100,className='navbar-brand rounded float-end'))
+            dbc.Collapse(nav, id='navbar-collapse', is_open=False, navbar=True),
+        ],class_name='col-6 text-center header-text align-center'),
+        dbc.Col([
+             dcc.Dropdown(
+                id = 'home_search', placeholder= 'search name or product id ', className='dropdown nav-search me-auto', optionHeight=50,
+            )
+        ], class_name='ms-auto mt-3'),
+        dbc.Col(
+            html.Img(src='assets/atmosfair.png', width=200, height=100, className='navbar-brand rounded atmos_logo float-end') #className='navbar-brand rounded float-end atmos_logo
+        )
     ], fluid=True, class_name='d-flex justify-content-center')
 ,id='navbar', class_name='navbar')
 
@@ -71,16 +79,16 @@ main_layout = dbc.Container([
         ),
     dbc.Row([
         dbc.Col([
-            html.Small('13a, Mambila Street, Aso Drive, Abuja.', className='m-info'), #, style={'color':'#B8E1E9'}
-            html.A('www.tbcn.com.ng', href='http://tbcn.com.ng') #style={'color':'#B8E1E9'}
-        ], class_name='me-auto info_footer'),
+            # html.Small('13b, Mambila Street, Aso Drive, Abuja.', className='m-info d-inline'), #, style={'color':'#B8E1E9'}
+            html.A('www.tbcn.com.ng', href='http://tbcn.com.ng', className = 'm-info me-auto',style={'color':'#00738A'}) #style={'color':'#B8E1E9'}
+        ], class_name='info_footer', style={'padding-left':'30px'}),
         dbc.Col([
-            html.H3('Powered by Metaverse®', className='footer_text mt-2')
+            html.H3('powered by Metaverse®', className='footer_text mt-4', style={'color':'#1E1D1E'})
         ], class_name='text-center footer mt-0'),
         dbc.Col([
-            html.Small('To Be Connected Nigeria®', className='m-info ms-auto'), #, style={'color':'#B8E1E9'}
-            html.Small('2022©', className='ms-auto') #, style={'color':'#B8E1E9'}
-        ], class_name='text-center info_footer')
+            html.Small('TBCN® ©2022', className='m-info ms-auto'), #, style={'color':'#B8E1E9'}
+            # html.Small('2022©', className='ms-auto') #, style={'color':'#B8E1E9'}
+        ], class_name='text-center info_footer', style={'padding-right':'30px'})
     ], class_name='d-flex justify-content-center bg-light',  style=FOOTER_STYLE)    
 ], fluid=True, class_name='main_content')
 

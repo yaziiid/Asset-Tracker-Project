@@ -13,7 +13,7 @@
     background: linear-gradient(to bottom, #2c3e50, #bdc3c7);  */
 
 
-    padding-bottom: 25px;
+    /* padding-bottom: 10px; */
 }
 
 
@@ -156,7 +156,7 @@
 
   .footer_text {
     color: #1f3349;
-    font-size: 25px;
+    font-size: 20px;
     line-height: 24px;
     font-family: 'Open Sans', sans-serif;
     font-weight: normal;
@@ -189,7 +189,6 @@
 .info_footer {
   display: flex;
   flex-direction: column;
-  padding-left: 10;
 }
 
 .m-info {
@@ -199,4 +198,20 @@
 .main_content {
   display: flex;
   flex-direction: column;
+}
+
+.atmos_logo {
+  margin-top: 25px;
+}
+
+
+
+.navbar .Select-control {
+  background-color: whitesmoke !important;
+  height: 40px;
+}
+
+
+.nav-search {
+  margin-top: 40px;
 }

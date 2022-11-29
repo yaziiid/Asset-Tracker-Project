@@ -35,19 +35,20 @@ coordinates_input = html.Div(
     [
         dbc.Row([
             dbc.Label("Latitude", html_for="form_lat"),
-            dbc.Col([dbc.Input(type="number", id="form_lat", placeholder="Enter latitude", disabled=True)]),
+            dbc.Col([dbc.Input(type="number", id="form_lat", placeholder="Enter latitude", disabled=False)]),
             dbc.Label("Longitude", html_for="form_lon"),
-            dbc.Col([dbc.Input(type="number", id="form_lon", placeholder="Enter longitude", disabled=True)])
+            dbc.Col([dbc.Input(type="number", id="form_lon", placeholder="Enter longitude", disabled=False)])
         ], class_name="row")
     ],
     className="mb-3")
 
 form = dbc.Form([
-    html.H3('Customer Enrolment Form', className='text-center'),
+    html.H3('Product Registration Form', className='text-center'),
     name_input, address_input, phone_input, nin_input, coordinates_input,
     html.Br(),
     html.Br(),
     dbc.Col(dbc.Button(id='enrol_button', children='Submit', class_name='search_btn'), class_name='d-flex justify-content-center'),
+    html.Br(),
     dbc.Col(dbc.Alert(id='enrolment_alert', fade=True, color='success', duration=3000, is_open=False)),
     html.Br(),
 ], id='enrol_form')

@@ -15,7 +15,7 @@ import configparser
 def register_callbacks(app):
     ##### Database Configuration ######
     config = configparser.ConfigParser()
-    config.read('cloud_db.ini')
+    config.read('local_db.ini')
     hostname = config['HOST_DATA']['hostname']
     username = config['USER_DATA']['username']
     password = config['USER_DATA']['password']
@@ -46,23 +46,23 @@ def register_callbacks(app):
     Output('home', 'active'),
     Output('register', 'active'),
     Output('records', 'active'),
-    Output('search', 'active'),
+    # Output('search', 'active'),
     Input('location', 'pathname')
     )
     def display_content(pathname):
         page = unquote(pathname[1:])
         if page in content:
             if page == 'home':
-                return home_layout, True, False, False, False
+                return home_layout, True, False, False
             if page == 'register':
-                return form_layout, False, True, False, False
+                return form_layout, False, True, False
             if page == 'records':
-                return customer_records, False, False, True, False
-            if page == 'search':
-                return search_layout, False, False, False, True
+                return customer_records, False, False, True
+            # if page == 'search':
+            #     return search_layout, False, False, False, True
         else:
             if page != 'logout':
-                return home_layout, True, False, False, False
+                return home_layout, True, False, False
 
     
     hovertemplate = ('<b>Name: </b>: %{customdata[1]} <br>' +
@@ -160,10 +160,12 @@ def register_callbacks(app):
     State('form_address', 'value'),
     State('form_phone', 'value'),
     State('form_nin', 'value'),
+    State('form_lat', 'value'),
+    State('form_lon', 'value'),
     prevent_initial_call=True
     )
-    def enrolment_form(n, name, address, phone, nin):
-        data = {'name': name, 'address': address, 'phone': phone, 'nin': nin}
+    def enrolment_form(n, name, address, phone, nin, lat, lon):
+        data = {'name': name, 'address': address, 'phone': phone, 'nin': nin, 'lat': lat, 'lon': lon}
         for i in data.values():
             if not i:
                 color = 'danger'
@@ -173,8 +175,8 @@ def register_callbacks(app):
         config = {'db.url': f'mysql+pymysql://{username}:{password}@{hostname}/{database}'}
         engine = engine_from_config(config, prefix='db.')
         # engine = connect_with_connector()
-        query = "insert into customer_profile (name, address, phone, nin) VALUES(%s, %s, %s, %s)"
-        values = (name, address, phone, nin)
+        query = "insert into customer_profile (name, address, phone, nin, latitude, longitude) VALUES(%s, %s, %s, %s, %s, %s)"
+        values = (name, address, phone, nin, lat, lon)
         try:
             with engine.connect() as conn:
                 conn.execute(query, values)
