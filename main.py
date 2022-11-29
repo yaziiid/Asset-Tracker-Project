@@ -21,7 +21,7 @@ config.read('mailconfig.ini')
 
 ##### Database Configuration ######
 config_db = configparser.ConfigParser()
-config_db.read('local_db.ini')
+config_db.read('cloud_db.ini')
 db_public_ip = config_db['HOST_DATA']['hostname']
 db_user = config_db['USER_DATA']['username']
 db_pass = config_db['USER_DATA']['password']

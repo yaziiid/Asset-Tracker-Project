@@ -15,7 +15,7 @@ import configparser
 def register_callbacks(app):
     ##### Database Configuration ######
     config = configparser.ConfigParser()
-    config.read('local_db.ini')
+    config.read('cloud_db.ini')
     hostname = config['HOST_DATA']['hostname']
     username = config['USER_DATA']['username']
     password = config['USER_DATA']['password']
