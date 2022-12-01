@@ -35,9 +35,9 @@ coordinates_input = html.Div(
     [
         dbc.Row([
             dbc.Label("Latitude", html_for="form_lat"),
-            dbc.Col([dbc.Input(type="number", id="form_lat", placeholder="Enter latitude", disabled=False)]),
+            dbc.Col([dbc.Input(type="number", id="form_lat", placeholder="Enter latitude", disabled=True)]),
             dbc.Label("Longitude", html_for="form_lon"),
-            dbc.Col([dbc.Input(type="number", id="form_lon", placeholder="Enter longitude", disabled=False)])
+            dbc.Col([dbc.Input(type="number", id="form_lon", placeholder="Enter longitude", disabled=True)])
         ], class_name="row")
     ],
     className="mb-3")

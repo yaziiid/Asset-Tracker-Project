@@ -16,7 +16,7 @@ nav = dbc.Nav([
         dbc.NavItem(dbc.NavLink("Home", id='home', href='/home', style=style_2),  class_name='me-1'),
         dbc.NavItem(dbc.NavLink("Register", id='register', href='/register', style=style_2),  class_name='me-1'),
         dbc.NavItem(dbc.NavLink("Records", id='records', href='/records', style=style_2),  class_name='me-1'),
-        # dbc.NavItem(dbc.NavLink("Search", id='search', href='/search', style=style_2), class_name='me-1'),
+        dbc.NavItem(dbc.NavLink("Search", id='search', href='/search', style=style_2), class_name='me-1'),
         dbc.NavItem(dbc.NavLink("Logout", id='logout', href='/logout', style=style_2, external_link=True), class_name='me-1'),
 
 ],navbar=True, justified=True, class_name='mx-auto fs-4')
@@ -27,14 +27,15 @@ navbar = dbc.Navbar(
             html.A([
                 dbc.Row([
                     dbc.Col([
-                        html.Img(src='assets/tbcn-logo2.png', width=160, height=90,className='mt-3 navbar-brand rounded float-start'),
-                        html.Small('To Be Connected Nigeria', className='light')
+                        html.Img(src='assets/naseni_logo.png', width=110, height=110,className='mt-2 navbar-brand rounded float-start')
+                        # html.Img(src='assets/tbcn-logo2.png', width=160, height=90,className='mt-3 navbar-brand rounded float-start'),
+                        # html.Small('To Be Connected Nigeria', className='light')
                     ], class_name='col-3 align-center py-0'),
                 ], align='center', className='g-0'),
             ], href='/'),
         ], align='start', class_name='col-3'),
         dbc.Col([
-            html.H2('Save-80 Geo-locator',), #style={'color':'#B8E1E9'}
+            html.H2('Save-80 Asset Tracker',), #style={'color':'#B8E1E9'}
             dbc.NavbarToggler(id='nav-toggler', n_clicks=0),
             dbc.Collapse(nav, id='navbar-collapse', is_open=False, navbar=True),
         ],class_name='col-6 text-center header-text align-center gy-0'),
@@ -77,21 +78,20 @@ main_layout = dbc.Container([
     dbc.Row(
             dbc.Col(id='content_container', lg={'size':12}, class_name='content-con') #content_con
         ),
-    dbc.Row([
-        dbc.Col([
-            # html.Small('13b, Mambila Street, Aso Drive, Abuja.', className='m-info d-inline'), #, style={'color':'#B8E1E9'}
-            html.A('www.tbcn.com.ng', href='http://tbcn.com.ng', className = 'm-info me-auto  mt-4',style={'color':'#00738A'}) #style={'color':'#B8E1E9'}
-        ], class_name='info_footer ', style={'padding-left':'30px'}),
-        dbc.Col([
-            html.H3('powered by Metaverse®', className='footer_text mt-4', style={'color':'#1E1D1E'})
-        ], class_name='text-center footer mt-0'),
-        dbc.Col([
-            html.Small('TBCN® ©2022', className='m-info ms-auto  mt-4'), #, style={'color':'#B8E1E9'}
-            # html.Small('2022©', className='ms-auto') #, style={'color':'#B8E1E9'}
-        ], class_name='text-center info_footer', style={'padding-right':'30px'})
-    ], class_name='d-flex justify-content-center bg-light',  style=FOOTER_STYLE)    
+    # dbc.Row([
+    #     dbc.Col([
+    #         # html.Small('13b, Mambila Street, Aso Drive, Abuja.', className='m-info d-inline'), #, style={'color':'#B8E1E9'}
+    #         html.A('www.tbcn.com.ng', href='http://tbcn.com.ng', className = 'm-info me-auto  mt-4',style={'color':'#00738A'}) #style={'color':'#B8E1E9'}
+    #     ], class_name='info_footer ', style={'padding-left':'30px'}),
+    #     dbc.Col([
+    #         html.H3('powered by Metaverse®', className='footer_text mt-4', style={'color':'#1E1D1E'})
+    #     ], class_name='text-center footer mt-0'),
+    #     dbc.Col([
+    #         html.Small('TBCN® ©2022', className='m-info ms-auto  mt-4'), #, style={'color':'#B8E1E9'}
+    #         # html.Small('2022©', className='ms-auto') #, style={'color':'#B8E1E9'}
+    #     ], class_name='text-center info_footer', style={'padding-right':'30px'})
+    # ], class_name='d-flex justify-content-center bg-light',  style=FOOTER_STYLE)    
 ], fluid=True, class_name='main_content')
-
 
 
 
