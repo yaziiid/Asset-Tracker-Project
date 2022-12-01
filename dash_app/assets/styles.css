@@ -14,6 +14,8 @@
 
 
     /* padding-bottom: 10px; */
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 
@@ -177,9 +179,10 @@
   } */
 .navbar small {
   position: fixed;
-  top: 100px;
-  left:60px;
+  top: 93px;
+  left:38px;
   color:#177D3E;
+  font-size: small;
 }
 
 .Select-arrow {
@@ -191,9 +194,9 @@
   flex-direction: column;
 }
 
-.m-info {
+/* .m-info {
   margin-top: 30px;
-}
+} */
 
 .main_content {
   display: flex;
